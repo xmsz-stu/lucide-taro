@@ -1,0 +1,15 @@
+import React from 'react';
+import LucideIcon, { LucideIconProps } from '../components/LucideIcon';
+
+const iconNode = [["path",{"d":"M10 9.5 8 12l2 2.5"}],["path",{"d":"M14 21h1"}],["path",{"d":"m14 9.5 2 2.5-2 2.5"}],["path",{"d":"M5 21a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2"}],["path",{"d":"M9 21h1"}]];
+
+const SquareDashedBottomCode = (props: LucideIconProps) => (
+  <LucideIcon
+    {...props}
+    iconNode={iconNode as any}
+  />
+);
+
+SquareDashedBottomCode.displayName = 'SquareDashedBottomCode';
+
+export default SquareDashedBottomCode;

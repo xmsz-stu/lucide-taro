@@ -1,0 +1,15 @@
+import React from 'react';
+import LucideIcon, { LucideIconProps } from '../components/LucideIcon';
+
+const iconNode = [["path",{"d":"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"}],["circle",{"cx":"9","cy":"7","r":"4"}],["line",{}],["line",{}]];
+
+const UserPlus = (props: LucideIconProps) => (
+  <LucideIcon
+    {...props}
+    iconNode={iconNode as any}
+  />
+);
+
+UserPlus.displayName = 'UserPlus';
+
+export default UserPlus;

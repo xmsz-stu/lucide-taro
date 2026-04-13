@@ -1,0 +1,15 @@
+import React from 'react';
+import LucideIcon, { LucideIconProps } from '../components/LucideIcon';
+
+const iconNode = [["path",{"d":"M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"}],["path",{"d":"m21 3-9 9"}],["path",{"d":"M15 3h6v6"}]];
+
+const SquareArrowOutUpRight = (props: LucideIconProps) => (
+  <LucideIcon
+    {...props}
+    iconNode={iconNode as any}
+  />
+);
+
+SquareArrowOutUpRight.displayName = 'SquareArrowOutUpRight';
+
+export default SquareArrowOutUpRight;

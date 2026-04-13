@@ -1,0 +1,15 @@
+import React from 'react';
+import LucideIcon, { LucideIconProps } from '../components/LucideIcon';
+
+const iconNode = [["path",{"d":"M3 3v16a2 2 0 0 0 2 2h16"}],["path",{"d":"M7 11h8"}],["path",{"d":"M7 16h12"}],["path",{"d":"M7 6h3"}]];
+
+const ChartBarIncreasing = (props: LucideIconProps) => (
+  <LucideIcon
+    {...props}
+    iconNode={iconNode as any}
+  />
+);
+
+ChartBarIncreasing.displayName = 'ChartBarIncreasing';
+
+export default ChartBarIncreasing;

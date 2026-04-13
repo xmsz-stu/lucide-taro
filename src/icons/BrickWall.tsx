@@ -1,0 +1,15 @@
+import React from 'react';
+import LucideIcon, { LucideIconProps } from '../components/LucideIcon';
+
+const iconNode = [["rect",{"x":"3","y":"3","rx":"2"}],["path",{"d":"M12 9v6"}],["path",{"d":"M16 15v6"}],["path",{"d":"M16 3v6"}],["path",{"d":"M3 15h18"}],["path",{"d":"M3 9h18"}],["path",{"d":"M8 15v6"}],["path",{"d":"M8 3v6"}]];
+
+const BrickWall = (props: LucideIconProps) => (
+  <LucideIcon
+    {...props}
+    iconNode={iconNode as any}
+  />
+);
+
+BrickWall.displayName = 'BrickWall';
+
+export default BrickWall;
