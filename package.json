@@ -1,22 +1,41 @@
 {
 	"name": "lucide-tarojs",
-	"version": "1.0.0",
+	"version": "1.0.1",
+	"type": "module",
 	"description": "Lucide icons for TaroJS (Mini Programs)",
-	"main": "src/index.ts",
-	"scripts": {
-		"generate": "ts-node scripts/generate.ts",
-		"build": "tsc"
+	"main": "./dist/index.js",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		},
+		"./icons/*": {
+			"types": "./dist/icons/*.d.ts",
+			"import": "./dist/icons/*.js"
+		}
 	},
-	"dependencies": {
-		"lucide-static": "latest"
+	"scripts": {
+		"generate": "tsx scripts/generate.ts",
+		"build": "tsup",
+		"dev": "tsup --watch"
 	},
 	"peerDependencies": {
 		"@tarojs/components": "^4.1.11",
-		"react": "^18.3.1",
-		"@tarojs/plugin-platform-weapp": "^4.1.11"
+		"@tarojs/plugin-platform-weapp": "^4.1.11",
+		"react": "^18.3.1"
 	},
 	"devDependencies": {
+		"@types/node": "^25.6.0",
+		"@types/react": "^19.2.14",
 		"ts-node": "^10.9.1",
-		"typescript": "^6.0.2"
+		"tsup": "^8.5.1",
+		"tsx": "^4.21.0",
+		"typescript": "^6.0.2",
+		"lucide-static": "latest"
 	}
 }

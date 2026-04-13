@@ -1,6 +1,10 @@
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import * as lucide from 'lucide-static';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // 获取真正的图标对象
 const icons = (lucide as any).icons || (lucide as any).default?.icons || lucide;
@@ -47,6 +51,7 @@ const allEntries = Object.keys(icons);
 console.log(`Found ${allEntries.length} entries in lucide-static`);
 
 const exportStatements: string[] = [];
+const generatedComponents = new Set<string>();
 let count = 0;
 
 /**
@@ -83,8 +88,17 @@ allEntries.forEach((name, index) => {
   if (typeof svgContent === 'string' && svgContent.includes('<svg')) {
     const nodes = parseSvgToNodes(svgContent);
     if (nodes.length > 0) {
-      const componentName = generateIconComponent(name, nodes);
+      const componentName = toPascalCase(name);
+      const normalizedName = componentName.toLowerCase();
+      
+      if (generatedComponents.has(normalizedName)) {
+        console.warn(`Skipping duplicate component (case collision): ${componentName} (from ${name})`);
+        return;
+      }
+      
+      generateIconComponent(name, nodes);
       exportStatements.push(`export { default as ${componentName} } from './icons/${componentName}';`);
+      generatedComponents.add(normalizedName);
       count++;
     }
   }
