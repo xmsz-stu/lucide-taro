@@ -1,6 +1,6 @@
 {
 	"name": "lucide-tarojs",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"type": "module",
 	"description": "Lucide icons for TaroJS (Mini Programs)",
 	"main": "./dist/index.js",
@@ -22,7 +22,9 @@
 	"scripts": {
 		"generate": "tsx scripts/generate.ts",
 		"build": "tsup",
-		"dev": "tsup --watch"
+		"dev": "tsup --watch",
+		"prepublishOnly": "pnpm build",
+		"release": "pnpm build && npm publish"
 	},
 	"peerDependencies": {
 		"@tarojs/components": "^4.1.11",
