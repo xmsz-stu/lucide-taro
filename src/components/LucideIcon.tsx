@@ -26,8 +26,8 @@ const LucideIcon: React.FC<InternalIconProps> = memo(
 		...props
 	}) => {
 		const dataUrl = useMemo(() => {
-			return getIconDataUrl(iconNode, { color, size, strokeWidth });
-		}, [iconNode, color, size, strokeWidth]);
+			return getIconDataUrl(iconNode, { color, size, strokeWidth, fill: props.fill });
+		}, [iconNode, color, size, strokeWidth, props.fill]);
 
 		return (
 			<Image

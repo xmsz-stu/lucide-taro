@@ -15,7 +15,7 @@ export const createSvgString = (
     .join('');
 
   // 关键优化：内部 width/height 固定为 100%，由外部 Image 组件控制 rpx 尺寸
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="${attrs.color}" stroke-width="${attrs.strokeWidth}" stroke-linecap="round" stroke-linejoin="round">${children}</svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="${attrs.fill ?? "none"}" stroke="${attrs.color}" stroke-width="${attrs.strokeWidth}" stroke-linecap="round" stroke-linejoin="round">${children}</svg>`;
 };
 
 /**
@@ -39,7 +39,7 @@ export const getIconDataUrl = (
   attrs: Record<string, string | number>
 ) => {
   // 缓存 Key 排除 size，因为内部是 100%，size 的变化由 CSS 处理，不需要重新生成 DataURL
-  const cacheKey = `${JSON.stringify(iconNode)}-${attrs.color}-${attrs.strokeWidth}`;
+  const cacheKey = `${JSON.stringify(iconNode)}-${attrs.color}-${attrs.strokeWidth}-${attrs.fill ?? "none"}`;
   
   if (dataUrlCache.has(cacheKey)) {
     return dataUrlCache.get(cacheKey)!;
