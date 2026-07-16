@@ -1,6 +1,6 @@
 {
 	"name": "lucide-tarojs",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"type": "module",
 	"description": "Lucide icons for TaroJS (Mini Programs)",
 	"main": "./dist/index.js",
@@ -29,15 +29,17 @@
 	"peerDependencies": {
 		"@tarojs/components": "^4.1.11",
 		"@tarojs/plugin-platform-weapp": "^4.1.11",
+		"@tarojs/taro": "^4.1.11",
 		"react": "^18.3.1"
 	},
 	"devDependencies": {
+		"@tarojs/taro": "^4.1.11",
 		"@types/node": "^25.6.0",
 		"@types/react": "^19.2.14",
+		"lucide-static": "latest",
 		"ts-node": "^10.9.1",
 		"tsup": "^8.5.1",
 		"tsx": "^4.21.0",
-		"typescript": "^6.0.2",
-		"lucide-static": "latest"
+		"typescript": "^6.0.2"
 	}
 }

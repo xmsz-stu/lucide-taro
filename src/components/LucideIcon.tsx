@@ -1,5 +1,6 @@
 import React, { memo, useMemo } from "react";
 import { Image } from "@tarojs/components";
+import Taro from "@tarojs/taro";
 import { getIconDataUrl } from "../utils/base64";
 
 export interface LucideIconProps {
@@ -25,6 +26,8 @@ const LucideIcon: React.FC<InternalIconProps> = memo(
 		className,
 		...props
 	}) => {
+		const resolvedSize =
+			typeof size === "number" ? Taro.pxTransform(size) : size;
 		const dataUrl = useMemo(() => {
 			return getIconDataUrl(iconNode, { color, size, strokeWidth, fill: props.fill });
 		}, [iconNode, color, size, strokeWidth, props.fill]);
@@ -34,8 +37,8 @@ const LucideIcon: React.FC<InternalIconProps> = memo(
 				src={dataUrl}
 				className={className}
 				style={{
-					width: typeof size === "number" ? `${size}rpx` : size,
-					height: typeof size === "number" ? `${size}rpx` : size,
+					width: resolvedSize,
+					height: resolvedSize,
 					...style,
 				}}
 				{...props}

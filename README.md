@@ -13,7 +13,7 @@
   - **引用稳定化**: 图标几何数据定义在组件外层，确保 React `useMemo` 缓存命中率 100%。
   - **组件秒刷新**: 核心组件使用 `React.memo` 优化，屏蔽无效重绘。
 - **高度灵活**: 支持动态修改 `color`, `size`, `strokeWidth` 等属性。
-- **支持 rpx**: `size` 传入数值时自动转换为 `rpx`。
+- **跨端尺寸**: `size` 传入数值时通过 Taro 自动转换为目标平台单位。
 - **完美 Tree-shaking**: 每个图标均为独立文件，未使用的图标不会进入打包产物。
 - **Taro 4.x + React 18 适配**: 针对现代 Taro 架构深度优化。
 
@@ -36,7 +36,7 @@ import { Camera, Heart, Search } from 'lucide-taro';
 export default function Page() {
   return (
     <View>
-      {/* 基础用法：size={32} 会自动转为 32rpx */}
+      {/* 基础用法：size={32} 会自动转换为目标平台尺寸 */}
       <Camera color="#333" size={32} />
       
       {/* 支持显式字符串单位 */}

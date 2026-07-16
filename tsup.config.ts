@@ -8,7 +8,7 @@ export default defineConfig({
   clean: true,
   minify: false,
   target: 'es2020',
-  external: ['react', '@tarojs/components'],
+  external: ['react', '@tarojs/components', '@tarojs/taro'],
   outDir: 'dist',
   bundle: true,
   skipNodeModulesBundle: true,
